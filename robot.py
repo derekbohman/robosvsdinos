@@ -5,6 +5,5 @@ class Robot:
         self.robot_name = robot_name
         self.health = 100
         self.weapon = Weapon
-
     def attack(self, dinosaur):
         self.attack(dinosaur)
