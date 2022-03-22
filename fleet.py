@@ -3,4 +3,4 @@ class Fleet:
         self.robots = []
 
     def create_fleet(self):
-        pass
+        self.create_fleet()

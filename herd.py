@@ -3,4 +3,4 @@ class Herd:
         self.dinosaurs = []
 
     def create_herd(self):
-        pass
+        self.create_herd()
