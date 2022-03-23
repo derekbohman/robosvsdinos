@@ -1,10 +1,11 @@
 from weapon import Weapon
+import random
 
 class Robot:
     def __init__(self, robot_name):
         self.robot_name = robot_name
         self.health = 100
-        self.weapon = Weapon("Mace", 50)
+        self.weapon = Weapon("Mace", random.randint(25,50))
     
     def attack(self, dinosaur):
         dinosaur.health -= self.weapon.attack_power
