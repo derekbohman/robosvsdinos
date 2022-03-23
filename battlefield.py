@@ -1,4 +1,3 @@
-from platform import java_ver
 from fleet import Fleet
 from herd import Herd
 import random
@@ -28,11 +27,15 @@ class Battlefield:
     def dinosaur_turn(self):
         self.herd.dinosaurs[user_dinosaur_attack_choice].attack(self.fleet.robots[user_robot_defend_choice])
         if self.fleet.robots[user_robot_defend_choice].health <= 0:
+            print("")
+            print(f"*****{self.fleet.robots[user_robot_defend_choice].robot_name} has been destroyed!*****")
             del self.fleet.robots[user_robot_defend_choice]
 
     def robot_turn(self):
         self.fleet.robots[user_robot_attack_choice].attack(self.herd.dinosaurs[user_dinosaur_defend_choice])
         if self.herd.dinosaurs[user_dinosaur_defend_choice].health <= 0:
+            print("")
+            print(f"*****{self.herd.dinosaurs[user_dinosaur_defend_choice].dinosaur_name} has been slain!*****")
             del self.herd.dinosaurs[user_dinosaur_defend_choice]
               
     def show_dinosaur_options(self):
@@ -94,6 +97,8 @@ class Battlefield:
 
     def display_winners(self):
         if len(self.herd.dinosaurs) == 0:
+            print("")
             print("Robots win!!!")
         elif len(self.fleet.robots) == 0:
+            print("")
             print("Dinosaurs win!!!")
