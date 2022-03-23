@@ -44,17 +44,20 @@ class Battlefield:
         print("")
         count = 0
         for dinosaur in self.herd.dinosaurs:
-            print(f"Press {count} to select {dinosaur.dinosaur_name} ({dinosaur.health} health)")
+            print(f"Press {count} to select {dinosaur.dinosaur_name} ({dinosaur.health} health / {dinosaur.energy} energy)")
             count += 1
         print("")
         global user_dinosaur_attack_choice 
         user_dinosaur_attack_choice = int(input("Which dinosaur would you like to attack with? "))
+        if self.herd.dinosaurs[user_dinosaur_attack_choice].energy <= 0:
+            print("Please choose a different dinosaur!")
+            self.show_dinosaur_options()
         print("")
         print("Current Robot Fleet:")
         print("")
         count = 0
         for robot in self.fleet.robots:
-            print(f"Press {count} to select {robot.robot_name} ({robot.health} health")
+            print(f"Press {count} to select {robot.robot_name} ({robot.health} health / {robot.power_level} power)")
             count += 1
         print("")
         global user_robot_defend_choice
@@ -67,17 +70,20 @@ class Battlefield:
         print("")
         count = 0
         for robot in self.fleet.robots:
-            print(f"Press {count} to select {robot.robot_name} ({robot.health} health")
+            print(f"Press {count} to select {robot.robot_name} ({robot.health} health / {robot.power_level} power)")
             count += 1
         print("")
         global user_robot_attack_choice
         user_robot_attack_choice = int(input("Which robot would you like to attack with? "))
+        if self.fleet.robots[user_robot_attack_choice].power_level <= 0:
+            print("Please choose a different robot!")
+            self.show_robot_options()
         print("")
         print("Current Dinosaur Herd:")
         print("")
         count = 0
         for dinosaur in self.herd.dinosaurs:
-            print(f"Press {count} to select {dinosaur.dinosaur_name} ({dinosaur.health} health)")
+            print(f"Press {count} to select {dinosaur.dinosaur_name} ({dinosaur.health} health / {dinosaur.energy} energy)")
             count += 1
         print("")
         global user_dinosaur_defend_choice 
